@@ -1,4 +1,4 @@
-package stoyicker.annoyodroid;
+package annoyodroid;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
