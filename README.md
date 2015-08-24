@@ -6,8 +6,8 @@ AnnoyODroid
 
 master [![Build Status](https://travis-ci.org/stoyicker/AnnoyODroid.svg?branch=master)](https://travis-ci.org/stoyicker/AnnoyODroid) [![codecov.io](http://codecov.io/github/stoyicker/AnnoyODroid/coverage.svg?branch=master)](http://codecov.io/github/stoyicker/AnnoyODroid?branch=master)
 ------
-[![Release](https://img.shields.io/github/release/stoyicker/annoyodroid.svg?label=gradle)](https://jitpack.io/#jitpack/gradle-simple)
-[![Release](https://img.shields.io/github/release/stoyicker/annoyodroid.svg?label=maven)](https://jitpack.io/#jitpack/gradle-simple)
+[![Release](https://img.shields.io/github/release/stoyicker/AnnoyODroid.svg?label=gradle)](https://jitpack.io/#stoyicker/AnnoyODroid)
+[![Release](https://img.shields.io/github/release/stoyicker/AnnoyODroid.svg?label=maven)](https://jitpack.io/#stoyicker/AnnoyODroid)
 
 **Legal notice: See [LICENSE](https://raw.githubusercontent.com/Stoyicker/AnnoyODroid/master/LICENSE "LICENSE")**
 
