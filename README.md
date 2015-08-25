@@ -9,8 +9,6 @@ master [![Build Status](https://travis-ci.org/stoyicker/AnnoyODroid.svg?branch=m
 [![Release](https://img.shields.io/github/release/stoyicker/AnnoyODroid.svg?label=gradle)](https://jitpack.io/#stoyicker/AnnoyODroid)
 [![Release](https://img.shields.io/github/release/stoyicker/AnnoyODroid.svg?label=maven)](https://jitpack.io/#stoyicker/AnnoyODroid)
 
-**Legal notice: See [LICENSE](https://raw.githubusercontent.com/Stoyicker/AnnoyODroid/master/LICENSE "LICENSE")**
-
 Download
 --------
 **Gradle**
@@ -39,3 +37,13 @@ Hearthstone API wrapper for Android. Free to use (CC BY 4.0).
 Compatible with API 9 and higher through synchronous calls, plain Retrofit [callbacks](http://square.github.io/retrofit/javadoc/retrofit/Callback.html "Retrofit Javadoc") and RxJava [observables](http://reactivex.io/documentation/observable.html "ReactiveX Documentation").
 
 Pull requests are welcome. See the [guidelines for contributing](https://github.com/Stoyicker/AnnoyODroid/blob/master/CONTRIBUTING.md "CONTRIBUTING.md").
+
+License
+-------
+AnnoyODroid (c) by Jorge Antonio Diaz-Benito Soriano
+
+AnnoyODroid is licensed under a
+Creative Commons Attribution 4.0 International License.
+
+You should have received a copy of the license along with this
+work. If not, see [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
