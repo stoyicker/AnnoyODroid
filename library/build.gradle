@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
 
     dependencies {
@@ -34,6 +34,12 @@ android {
     }
 }
 
+tasks.withType(Test) {
+    testLogging {
+        events "started", "passed", "skipped", "failed"
+    }
+}
+
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
@@ -62,27 +68,29 @@ repositories {
 dependencies {
     compile 'org.apache.commons:commons-lang3:3.4'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.squareup.okhttp:mockwebserver:2.4.0'
 }
 
-jsonSchema2Pojo {
-    generateBuilders = false
-    usePrimitives = true
-    source = files("src/main/json")
-    targetDirectory = file("build/generated-sources/js2p")
-    targetPackage = 'annoyodroid.datamodel'
-    propertyWordDelimiters = [] as char[]
-    useLongIntegers = true
-    useDoubleNumbers = true
-    includeHashcodeAndEquals = true
-    includeToString = true
-    annotationStyle = 'gson'
-    customAnnotator = 'org.jsonschema2pojo.NoopAnnotator'
-    includeJsr303Annotations = false
-    sourceType = 'json'
-    removeOldOutput = true
-    outputEncoding = 'UTF-8'
-    useJodaDates = false
-    useCommonsLang3 = true
-    initializeCollections = true
-    parcelable = false
-}
+//jsonSchema2Pojo {
+//    generateBuilders = false
+//    usePrimitives = true
+//    source = files("src/main/json")
+//    targetDirectory = file("build/generated-sources/js2p")
+//    targetPackage = 'annoyodroid.datamodel'
+//    propertyWordDelimiters = [] as char[]
+//    useLongIntegers = true
+//    useDoubleNumbers = true
+//    includeHashcodeAndEquals = true
+//    includeToString = true
+//    annotationStyle = 'gson'
+//    customAnnotator = 'org.jsonschema2pojo.NoopAnnotator'
+//    includeJsr303Annotations = false
+//    sourceType = 'json'
+//    removeOldOutput = true
+//    outputEncoding = 'UTF-8'
+//    useJodaDates = false
+//    useCommonsLang3 = true
+//    initializeCollections = true
+//    parcelable = false
+//}
