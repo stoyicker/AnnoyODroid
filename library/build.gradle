@@ -13,6 +13,7 @@ buildscript {
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'jsonschema2pojo'
+apply plugin: 'jacoco'
 
 group = 'com.github.stoyicker'
 
@@ -28,10 +29,23 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            testCoverageEnabled true
+        }
         release {
             minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            testCoverageEnabled true
         }
     }
+}
+
+jacoco {
+    toolVersion = "0.7.1.201405082137"
 }
 
 tasks.withType(Test) {

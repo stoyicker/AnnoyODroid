@@ -1,5 +1,5 @@
 language: android
-sudo: required
+sudo: false ## Enable container-based infrastructure
 android:
   components:
     - build-tools-23.0.0
@@ -10,11 +10,8 @@ branches:
   only:
     - master
 before_install:
-# Mark Gradle as executable ##START##
-    - chmod +x gradlew
-# Mark Gradle as executable ##END##
-    - sudo pip install codecov
+    - chmod +x gradlew # Mark Gradle as executable
 script:
-    - ./gradlew clean build test
+    - ./gradlew clean build test createDebugCoverageReport
 after_success:
-    - codecov
+  - bash <(curl -s https://codecov.io/bash)
