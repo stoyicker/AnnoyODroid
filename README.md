@@ -4,7 +4,7 @@ AnnoyODroid
 
 [Would you like to have your app show up here?](https://github.com/Stoyicker/AnnoyODroid/issues/new?body=PLEASE%20ADD%20THE%20highlight-request%20LABEL%20TO%20THIS%20ISSUE%20AND%20ASSIGN%20IT%20TO%20stoyicker.%0A%0ALink:%20{Link%20to%20(one%20of,%20in%20order%20of%20preference)%20Google%20Play,%20Amazon%20Appstore%20for%20Android,%20F-Droid,%20Aptoide,%20source%20code%3E}%20%0AImage:%20{Link%20to%20a%20512x512%20PNG%20image%20representing%20your%20app}&title=App%20highlight%20request:%20{your_app_name} "Request app highlight issue template")
 
-master [![Build Status](https://travis-ci.org/stoyicker/AnnoyODroid.svg?branch=master)](https://travis-ci.org/stoyicker/AnnoyODroid) [![codecov.io](http://codecov.io/github/stoyicker/AnnoyODroid/coverage.svg?branch=master)](http://codecov.io/github/stoyicker/AnnoyODroid?branch=master)
+master [![Build Status](https://travis-ci.org/stoyicker/AnnoyODroid.svg?branch=master)](https://travis-ci.org/stoyicker/AnnoyODroid)
 ------
 [![Release](https://img.shields.io/github/release/stoyicker/AnnoyODroid.svg?label=gradle)](https://jitpack.io/#stoyicker/AnnoyODroid)
 [![Release](https://img.shields.io/github/release/stoyicker/AnnoyODroid.svg?label=maven)](https://jitpack.io/#stoyicker/AnnoyODroid)

@@ -10,8 +10,7 @@ branches:
   only:
     - master
 before_install:
-    - chmod +x gradlew # Mark Gradle as executable
+    - chmod +x gradlew
+    - chmod +x make
 script:
-    - ./gradlew clean build test createDebugCoverageReport
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+    - ./make
