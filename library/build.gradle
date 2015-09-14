@@ -36,6 +36,8 @@ android {
         targetSdkVersion rootProject.ext.androidTargetSdkVersion
         versionCode rootProject.ext.libraryVersionCode
         versionName rootProject.ext.libraryVersionName
+        testHandleProfiling true
+        testFunctionalTest true
     }
 
     buildTypes {
@@ -84,17 +86,6 @@ artifacts {
     archives javadocJar
 }
 
-/**
- * Due to a bug, the coverage reported by JaCoCo only corresponds to instrumentation tests. To include te results from unit tests, a small workaround is required.
- */
-project.afterEvaluate {
-    def append = "append=true"
-    def destFile = "destfile=$buildDir/outputs/code-coverage/connected/coverage.ec"
-    testDebugUnitTest.jvmArgs "-javaagent:$buildDir/intermediates/jacoco/jacocoagent.jar=$append,$destFile"
-
-    createDebugAndroidTestCoverageReport.dependsOn testDebugUnitTest
-}
-
 dependencies {
     def runDependencies = rootProject.ext.runDependencies
     def testDependencies = rootProject.ext.testDependencies
@@ -113,4 +104,5 @@ dependencies {
     testCompile testDependencies.powerMock
 }
 
+apply from: "coverage.gradle"
 //apply from: "model/generate.gradle"

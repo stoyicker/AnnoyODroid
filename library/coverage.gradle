@@ -1,0 +1,10 @@
+/**
+ * Due to a bug, the coverage reported by JaCoCo only corresponds to instrumentation tests. To include unit tests, a small workaround is required.
+ */
+project.afterEvaluate {
+    def append = "append=true"
+    def destFile = "destfile=$buildDir/outputs/code-coverage/connected/coverage.ec"
+    testDebugUnitTest.jvmArgs "-javaagent:$buildDir/intermediates/coverage/jacocoagent.jar=$append,$destFile"
+
+    createDebugAndroidTestCoverageReport.dependsOn testDebugUnitTest
+}

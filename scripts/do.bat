@@ -1,1 +1,1 @@
-gradlew clean assembleDebug javadocJar connectedCheck
+gradlew clean assembleDebug javadocJar testDebugUnitTest dependencyUpdates -Drevision=release
