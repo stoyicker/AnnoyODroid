@@ -4,7 +4,7 @@ AnnoyODroid
 
 [Would you like to have your app show up here?](http://issuetemplate.com/#/stoyicker/AnnoyODroid/App%20highlight%20request "Request app highlight issue template")
 
-master [![Build Status](https://travis-ci.org/stoyicker/AnnoyODroid.svg?branch=master)](https://travis-ci.org/stoyicker/AnnoyODroid)
+master [![Build Status](https://travis-ci.org/stoyicker/AnnoyODroid.svg?branch=master)](https://travis-ci.org/stoyicker/AnnoyODroid) [![Coverage Status](https://coveralls.io/repos/stoyicker/AnnoyODroid/badge.svg?branch=master&service=github)](https://coveralls.io/github/stoyicker/AnnoyODroid?branch=master)
 ------
 [![Release](https://img.shields.io/github/release/stoyicker/AnnoyODroid.svg?label=gradle)](https://jitpack.io/#stoyicker/AnnoyODroid)
 [![Release](https://img.shields.io/github/release/stoyicker/AnnoyODroid.svg?label=maven)](https://jitpack.io/#stoyicker/AnnoyODroid)
