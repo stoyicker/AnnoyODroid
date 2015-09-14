@@ -14,14 +14,20 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
-@RunWith(JUnit4.class)
+import annoyodroid.io.network.ApiClient;
+import annoyodroid.io.network.ApiService;
+
+@PrepareForTest(ApiClient.class)
+@RunWith(PowerMockRunner.class)
 @MediumTest //http://googletesting.blogspot.se/2010/12/test-sizes.html
-public class AnnoyODroidBaseTest {
+public class TestSuite {
 
     @Test
-    public void dummyTest() {
-        Assert.assertEquals(2 + 2, 4);
+    public void dummy() {
+        final ApiService service = ApiClient.getApiService("http://www.google.com/");
+        Assert.assertNotNull(service);
     }
 }
