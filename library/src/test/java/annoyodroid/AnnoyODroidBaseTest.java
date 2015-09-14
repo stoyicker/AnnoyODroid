@@ -8,6 +8,8 @@
 
 package annoyodroid;
 
+import android.test.suitebuilder.annotation.MediumTest;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -15,6 +17,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
+@MediumTest //http://googletesting.blogspot.se/2010/12/test-sizes.html
 public class AnnoyODroidBaseTest {
 
     @Test

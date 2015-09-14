@@ -1,1 +1,1 @@
-gradlew clean assembleDebug connectedCheck
+gradlew clean assembleDebug javadocJar connectedCheck

@@ -1,13 +1,22 @@
+/*
+ * AnnoyODroid (c) by Jorge Antonio Diaz-Benito Soriano
+ *
+ * AnnoyODroid is licensed under a Creative Commons Attribution 4.0 International License.
+ *
+ * You should have received a copy of the license along with this work. If not, see http://creativecommons.org/licenses/by/4.0/.
+ */
+
 buildscript {
     repositories {
         jcenter()
     }
 
     dependencies {
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
-        classpath 'com.android.tools.build:gradle:1.4.0-beta1'
-        classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:0.4.15'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.11.3'
+        def classpathDependencies = rootProject.ext.classpathDependencies
+
+        classpath classpathDependencies.androidMavenGradle
+        classpath classpathDependencies.jsonSchema2Pojo
+        classpath classpathDependencies.gradleVersions
     }
 }
 
@@ -19,14 +28,14 @@ apply plugin: 'jsonschema2pojo'
 group = 'com.github.stoyicker'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.0"
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    buildToolsVersion rootProject.ext.androidBuildToolsVersion
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 23
-        versionCode 6
-        versionName "0.0.6"
+        minSdkVersion rootProject.ext.androidMinSdkVersion
+        targetSdkVersion rootProject.ext.androidTargetSdkVersion
+        versionCode rootProject.ext.libraryVersionCode
+        versionName rootProject.ext.libraryVersionName
     }
 
     buildTypes {
@@ -36,6 +45,10 @@ android {
             zipAlignEnabled false
             testCoverageEnabled true
         }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
     }
 }
 
@@ -51,7 +64,7 @@ task sourcesJar(type: Jar) {
 }
 
 task javadoc(type: Javadoc) {
-    failOnError false
+    failOnError true
     source = android.sourceSets.main.java.sourceFiles
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
@@ -66,45 +79,33 @@ artifacts {
     archives javadocJar
 }
 
-repositories {
-    jcenter()
+/**
+ * Due to a bug, the coverage reported by JaCoCo only corresponds to instrumentation tests. To include te results from unit tests, a small workaround is required.
+ */
+project.afterEvaluate {
+    def append = "append=true"
+    def destFile = "destfile=$buildDir/outputs/code-coverage/connected/coverage.ec"
+    testDebugUnitTest.jvmArgs "-javaagent:$buildDir/intermediates/jacoco/jacocoagent.jar=$append,$destFile"
+
+    createDebugAndroidTestCoverageReport.dependsOn testDebugUnitTest
 }
 
 dependencies {
-    compile 'org.apache.commons:commons-lang3:3.4'
-    compile 'com.squareup.retrofit:retrofit:2.0.0-beta1'
-    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta1'
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:2.0.31-beta'
+    def runDependencies = rootProject.ext.runDependencies
+    def testDependencies = rootProject.ext.testDependencies
+
+    compile runDependencies.commonsLang
+    compile runDependencies.retrofitGsonConverter
+    compile runDependencies.supportAnnotations
+    compile runDependencies.glassfishAnnotations
+
+    provided runDependencies.retrofit
+    provided runDependencies.retrofitRxJavaAdapter
+
+    testCompile testDependencies.jUnit4
+    testCompile testDependencies.mockito
+    testCompile testDependencies.powerMockJUnit4
+    testCompile testDependencies.powerMock
 }
 
-/*
- * AnnoyODroid (c) by Jorge Antonio Diaz-Benito Soriano
- *
- * AnnoyODroid is licensed under a Creative Commons Attribution 4.0 International License.
- *
- * You should have received a copy of the license along with this work. If not, see http://creativecommons.org/licenses/by/4.0/.
- */
-
-//jsonSchema2Pojo {
-//    generateBuilders = false
-//    usePrimitives = true
-//    source = files("src/main/json")
-//    targetDirectory = file("build/generated-sources/js2p")
-//    targetPackage = 'annoyodroid.datamodel'
-//    propertyWordDelimiters = [] as char[]
-//    useLongIntegers = true
-//    useDoubleNumbers = true
-//    includeHashcodeAndEquals = true
-//    includeToString = true
-//    annotationStyle = 'gson'
-//    customAnnotator = 'org.jsonschema2pojo.NoopAnnotator'
-//    includeJsr303Annotations = false
-//    sourceType = 'json'
-//    removeOldOutput = true
-//    outputEncoding = 'UTF-8'
-//    useJodaDates = false
-//    useCommonsLang3 = true
-//    initializeCollections = true
-//    parcelable = false
-//}
+//apply from: "model/generate.gradle"

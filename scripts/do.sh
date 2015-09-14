@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-./gradlew clean assembleDebug connectedCheck
+./gradlew clean assembleDebug javadocJar connectedCheck
