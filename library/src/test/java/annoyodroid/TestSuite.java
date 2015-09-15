@@ -8,26 +8,19 @@
 
 package annoyodroid;
 
-import android.test.suitebuilder.annotation.MediumTest;
-
-import junit.framework.Assert;
-
+import annoyodroid.io.network.ApiClient;
+import annoyodroid.io.network.IApiService;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import org.junit.runners.JUnit4;
 
-import annoyodroid.io.network.ApiClient;
-import annoyodroid.io.network.ApiService;
-
-@PrepareForTest(ApiClient.class)
-@RunWith(PowerMockRunner.class)
-@MediumTest //http://googletesting.blogspot.se/2010/12/test-sizes.html
+@RunWith(JUnit4.class)
 public class TestSuite {
 
     @Test
     public void dummy() {
-        final ApiService service = ApiClient.getApiService("http://www.google.com/");
+        final IApiService service = ApiClient.getApiService("http://www.google.com/");
         Assert.assertNotNull(service);
     }
 }

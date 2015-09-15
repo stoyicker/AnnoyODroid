@@ -11,64 +11,42 @@ buildscript {
         jcenter()
     }
 
+    //noinspection GroovyAssignabilityCheck
     dependencies {
         def classpathDependencies = rootProject.ext.classpathDependencies
 
-        classpath classpathDependencies.androidMavenGradle
-        classpath classpathDependencies.jsonSchema2Pojo
         classpath classpathDependencies.gradleVersions
+        classpath classpathDependencies.jsonSchema2Pojo
+        classpath classpathDependencies.coveralls
     }
 }
 
-apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+//apply from: "model/generate.gradle"
+
+apply plugin: 'java'
 apply plugin: 'com.github.ben-manes.versions'
-apply plugin: 'jsonschema2pojo'
+
+apply plugin: "jacoco"
+apply plugin: 'com.github.kt3k.coveralls'
+
+jacoco {
+    toolVersion rootProject.ext.jacocoVersion
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
+}
+
+apply plugin: 'maven'
 
 group = 'com.github.stoyicker'
 
-android {
-    compileSdkVersion rootProject.ext.androidCompileSdkVersion
-    buildToolsVersion rootProject.ext.androidBuildToolsVersion
-
-    defaultConfig {
-        minSdkVersion rootProject.ext.androidMinSdkVersion
-        targetSdkVersion rootProject.ext.androidTargetSdkVersion
-        versionCode rootProject.ext.libraryVersionCode
-        versionName rootProject.ext.libraryVersionName
-        testHandleProfiling true
-        testFunctionalTest true
-    }
-
-    buildTypes {
-        debug {
-            minifyEnabled false
-            shrinkResources false
-            zipAlignEnabled false
-            testCoverageEnabled true
-        }
-    }
-
-    packagingOptions {
-        exclude 'META-INF/LICENSE.txt'
-    }
-}
-
-tasks.withType(Test) {
-    testLogging {
-        events "started", "passed", "skipped", "failed"
-    }
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
+task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    failOnError true
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    from sourceSets.main.allSource
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
@@ -81,23 +59,46 @@ artifacts {
     archives javadocJar
 }
 
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            licenses {
+                license {
+                    name 'Creative Commons Attribution 4.0 International'
+                    url 'https://creativecommons.org/licenses/by/4.0/legalcode'
+                    distribution 'repo'
+                }
+            }
+        }
+    }
+}
+
+//noinspection GroovyAssignabilityCheck
+configurations {
+    provided
+}
+
+//noinspection GroovyAssignabilityCheck
+sourceSets {
+    //noinspection GroovyAssignabilityCheck
+    main {
+        compileClasspath += configurations.provided
+    }
+}
+
+//noinspection GroovyAssignabilityCheck
 dependencies {
     def runDependencies = rootProject.ext.runDependencies
     def testDependencies = rootProject.ext.testDependencies
 
     compile runDependencies.commonsLang
     compile runDependencies.retrofitGsonConverter
-    compile runDependencies.supportAnnotations
     compile runDependencies.glassfishAnnotations
+    compile runDependencies.javaXValidationVersion
 
     provided runDependencies.retrofit
     provided runDependencies.retrofitRxJavaAdapter
 
     testCompile testDependencies.jUnit4
     testCompile testDependencies.mockito
-    testCompile testDependencies.powerMockJUnit4
-    testCompile testDependencies.powerMock
 }
-
-apply from: "coverage.gradle"
-//apply from: "model/generate.gradle"

@@ -8,13 +8,13 @@
 
 package annoyodroid.io.network;
 
-import android.support.annotation.NonNull;
-
 import retrofit.Retrofit;
+
+import javax.validation.constraints.NotNull;
 
 public abstract class ApiClient {
 
-    private static volatile ApiService service;
+    private static volatile IApiService service;
     private static final Object LOCK = new Object();
     private static String currentHost;
 
@@ -24,7 +24,7 @@ public abstract class ApiClient {
      * @param host The host to use for the instance.
      * @return The instance created
      */
-    private static Retrofit createRetrofit(final @NonNull String host) {
+    private static Retrofit createRetrofit(final @NotNull String host) {
         final Retrofit.Builder builder = new Retrofit.Builder();
 
         return builder
@@ -39,15 +39,15 @@ public abstract class ApiClient {
      * @param host The corresponding host
      * @return The singleton service instance
      */
-    public static ApiService getApiService(@NonNull final String host) {
-        ApiService ret = service;
+    public static IApiService getApiService(@NotNull final String host) {
+        IApiService ret = service;
 
         if (service == null || !host.contentEquals(currentHost)) {
             synchronized (LOCK) {
                 ret = service;
                 if (service == null || !host.contentEquals(currentHost)) {
                     currentHost = host;
-                    ret = createRetrofit(host).create(ApiService.class);
+                    ret = createRetrofit(host).create(IApiService.class);
                     service = ret;
                 }
             }

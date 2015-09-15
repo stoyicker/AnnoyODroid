@@ -6,15 +6,7 @@
  * You should have received a copy of the license along with this work. If not, see http://creativecommons.org/licenses/by/4.0/.
  */
 
+package annoyodroid.io.network;
 
-ext {
-    //Artifact versions
-    libraryVersionName = "0.0.6"
-    libraryVersionCode = 6
-
-    //Android version configuration
-    androidBuildToolsVersion = "23.0.1"
-    androidMinSdkVersion = 9
-    androidTargetSdkVersion = 23
-    androidCompileSdkVersion = 23
+public interface IApiService {
 }
