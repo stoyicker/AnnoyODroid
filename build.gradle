@@ -5,8 +5,10 @@
  *
  * You should have received a copy of the license along with this work. If not, see http://creativecommons.org/licenses/by/4.0/.
  */
+def gradleVersion = '2.7'
+
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.7'
+    gradleVersion = "${gradleVersion}"
 }
 
 apply from: 'buildsystem/ci.gradle'
