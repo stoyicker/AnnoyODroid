@@ -1,9 +1,5 @@
-language: android
+language: java
 sudo: false ## Enable container-based infrastructure
-android:
-  components:
-    - build-tools-23.0.1
-    - android-23
 jdk:
   - oraclejdk8
 branches:
@@ -15,4 +11,4 @@ before_install:
 script:
     - ./scripts/do.sh
 after_success:
-- ./gradlew jacocoTestReport coveralls
+    - ./gradlew jacocoTestReport coveralls
