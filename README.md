@@ -13,10 +13,19 @@ Download
 --------
 **Gradle**
 ```groovy
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
 compile 'com.github.stoyicker:annoyodroid:(insert latest version)'
 ```
 **Maven**
 ```xml
+<repository>
+  <id>jitpack.io</id>
+  <url>https://jitpack.io</url>
+</repository>
+
 <dependency>
   <groupId>com.github.stoyicker</groupId>
   <artifactId>annoyodroid</artifactId>
