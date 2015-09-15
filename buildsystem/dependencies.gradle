@@ -17,7 +17,7 @@ ext {
     //Classpath
     jsonSchema2PojoVersion = "0.4.15"
     gradleVersionsVersion = "0.11.3"
-    coverallsVersion = "2.0.1"
+    coverallsVersion = "2.4.0"
 
     //Libraries
     javaXValidationApiVersion = "1.1.0.Final"
