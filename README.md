@@ -32,7 +32,7 @@ Sample app
 
 AnnoyODroid isn’t endorsed by Blizzard Entertainment and does not reflect the views or opinions of Blizzard Entertainment or anyone officially involved in producing or managing Hearthstone. Hearthstone and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment, Inc. Hearthstone © Blizzard Entertainment, Inc.
 
-Hearthstone API wrapper for Android. Free to use (CC BY 4.0).
+Hearthstone API wrapper for Java and Android. Free to use (CC BY 4.0).
 
 Compatible with API 9 and higher through synchronous calls, plain Retrofit [callbacks](http://square.github.io/retrofit/javadoc/retrofit/Callback.html "Retrofit Javadoc") and RxJava [observables](http://reactivex.io/documentation/observable.html "ReactiveX Documentation").
 
