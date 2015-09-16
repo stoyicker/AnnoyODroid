@@ -6,10 +6,8 @@
  * You should have received a copy of the license along with this work. If not, see http://creativecommons.org/licenses/by/4.0/.
  */
 
-package annoyodroid;
+package annoyodroid.io.network;
 
-import annoyodroid.io.network.ApiClient;
-import annoyodroid.io.network.IApiService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +18,7 @@ public class TestSuite {
 
     @Test
     public void dummy() {
+        ApiClient.setApiService(new MockApiService());
         final IApiService service = ApiClient.getApiService("http://www.google.com/");
         Assert.assertNotNull(service);
     }

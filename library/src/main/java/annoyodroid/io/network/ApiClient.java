@@ -8,15 +8,16 @@
 
 package annoyodroid.io.network;
 
-import retrofit.Retrofit;
-
 import javax.validation.constraints.NotNull;
+
+import retrofit.Retrofit;
 
 public abstract class ApiClient {
 
     private static volatile IApiService service;
     private static final Object LOCK = new Object();
     private static String currentHost;
+    private static boolean isMocking = false;
 
     /**
      * Creates a Retrofit instance
@@ -33,6 +34,16 @@ public abstract class ApiClient {
     }
 
     /**
+     * Injects a service. <strong>To be used for testing purposes only</strong>
+     *
+     * @param _service The service to inject
+     */
+    static void setApiService(final @NotNull IApiService _service) {
+        ApiClient.service = _service;
+        isMocking = true;
+    }
+
+    /**
      * Gets the singleton service for a given host. If it does not match the current one, a new
      * instance is created to replace it
      *
@@ -42,10 +53,10 @@ public abstract class ApiClient {
     public static IApiService getApiService(@NotNull final String host) {
         IApiService ret = service;
 
-        if (service == null || !host.contentEquals(currentHost)) {
+        if (service == null || (!isMocking && !host.contentEquals(currentHost))) {
             synchronized (LOCK) {
                 ret = service;
-                if (service == null || !host.contentEquals(currentHost)) {
+                if (service == null || (!isMocking && !host.contentEquals(currentHost))) {
                     currentHost = host;
                     ret = createRetrofit(host).create(IApiService.class);
                     service = ret;
