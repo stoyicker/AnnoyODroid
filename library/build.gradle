@@ -74,19 +74,6 @@ install {
 }
 
 //noinspection GroovyAssignabilityCheck
-configurations {
-    provided
-}
-
-//noinspection GroovyAssignabilityCheck
-sourceSets {
-    //noinspection GroovyAssignabilityCheck
-    main {
-        compileClasspath += configurations.provided
-    }
-}
-
-//noinspection GroovyAssignabilityCheck
 dependencies {
     def runDependencies = rootProject.ext.runDependencies
     def testDependencies = rootProject.ext.testDependencies
@@ -95,9 +82,8 @@ dependencies {
     compile runDependencies.retrofitGsonConverter
     compile runDependencies.retrofit
     compile runDependencies.retrofitRxJavaAdapter
-    
-    provided runDependencies.javaXValidationApi
-    provided runDependencies.glassfishAnnotations
+    compile runDependencies.javaXValidationApi
+    compile runDependencies.glassfishAnnotations
 
     testCompile testDependencies.jUnit4
 }
