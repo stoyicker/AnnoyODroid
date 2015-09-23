@@ -96,7 +96,7 @@ dependencies {
     compile runDependencies.retrofit
     compile runDependencies.retrofitRxJavaAdapter
     
-    provided runDependencies.javaXValidation
+    provided runDependencies.javaXValidationApi
     provided runDependencies.glassfishAnnotations
 
     testCompile testDependencies.jUnit4
