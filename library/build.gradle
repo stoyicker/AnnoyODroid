@@ -93,12 +93,11 @@ dependencies {
 
     compile runDependencies.commonsLang
     compile runDependencies.retrofitGsonConverter
-    compile runDependencies.glassfishAnnotations
-    compile runDependencies.javaXValidationVersion
-
-    provided runDependencies.retrofit
-    provided runDependencies.retrofitRxJavaAdapter
+    compile runDependencies.retrofit
+    compile runDependencies.retrofitRxJavaAdapter
+    
+    provided runDependencies.javaXValidationVersion
+    provided runDependencies.glassfishAnnotations
 
     testCompile testDependencies.jUnit4
-    testCompile testDependencies.mockito
 }
