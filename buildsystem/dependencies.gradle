@@ -39,7 +39,7 @@ ext {
     ]
 
     runDependencies = [
-            javaXValidationVersion: "javax.validation:validation-api:${javaXValidationApiVersion}",
+            javaXValidationApi    : "javax.validation:validation-api:${javaXValidationApiVersion}",
             glassfishAnnotations  : "org.glassfish:javax.annotation:${glassfishAnnotationVersion}",
             commonsLang           : "org.apache.commons:commons-lang3:${commonsLangVersion}",
             retrofit              : "com.squareup.retrofit:retrofit:${retrofitVersion}",
