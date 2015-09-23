@@ -30,7 +30,6 @@ ext {
     //Testing
     jacocoVersion = "0.7.5.201505241946"
     jUnit4Version = "4.12"
-    mockitoVersion = "2.0.31-beta"
 
     classpathDependencies = [
             jsonSchema2Pojo: "org" +
@@ -51,7 +50,6 @@ ext {
     ]
 
     testDependencies = [
-            jUnit4 : "junit:junit:${jUnit4Version}",
-            mockito: "org.mockito:mockito-core:${mockitoVersion}"
+            jUnit4 : "junit:junit:${jUnit4Version}"
     ]
 }
