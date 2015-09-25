@@ -7,18 +7,18 @@
  */
 
 buildscript {
-    repositories {
-        jcenter()
-    }
+  repositories {
+    jcenter()
+  }
 
-    //noinspection GroovyAssignabilityCheck
-    dependencies {
-        def classpathDependencies = rootProject.ext.classpathDependencies
+  //noinspection GroovyAssignabilityCheck
+  dependencies {
+    def classpathDependencies = rootProject.ext.classpathDependencies
 
-        classpath classpathDependencies.gradleVersions
-        classpath classpathDependencies.jsonSchema2Pojo
-        classpath classpathDependencies.coveralls
-    }
+    classpath classpathDependencies.gradleVersions
+    classpath classpathDependencies.jsonSchema2Pojo
+    classpath classpathDependencies.coveralls
+  }
 }
 
 //apply from: "model/generate.gradle"
@@ -30,22 +30,22 @@ apply plugin: "jacoco"
 apply plugin: 'com.github.kt3k.coveralls'
 
 jacoco {
-    toolVersion rootProject.ext.jacocoVersion
+  toolVersion rootProject.ext.jacocoVersion
 }
 
 jacocoTestReport {
-    reports {
-        xml.enabled = true // coveralls plugin depends on xml format report
-        html.enabled = true
-    }
-    afterEvaluate {
-        classDirectories = files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: [
-              '**/R.java',
-              '**/BuildConfig.java'
-              ])
-        })
-    }
+  reports {
+    xml.enabled = true // coveralls plugin depends on xml format report
+    html.enabled = true
+  }
+  afterEvaluate {
+    classDirectories = files(classDirectories.files.collect {
+      fileTree(dir: it, exclude: [
+        '**/R.java',
+        '**/BuildConfig.java'
+      ])
+    })
+  }
 }
 
 apply plugin: 'maven'
@@ -53,45 +53,51 @@ apply plugin: 'maven'
 group = 'com.github.stoyicker'
 
 task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
+  classifier = 'sources'
+  from sourceSets.main.allSource
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
+  classifier = 'javadoc'
+  from javadoc.destinationDir
 }
 
 artifacts {
-    archives sourcesJar
-    archives javadocJar
+  archives sourcesJar
+  archives javadocJar
 }
 
 install {
-    repositories.mavenInstaller {
-        pom.project {
-            licenses {
-                license {
-                    name 'Creative Commons Attribution 4.0 International'
-                    url 'https://creativecommons.org/licenses/by/4.0/legalcode'
-                    distribution 'repo'
-                }
-            }
+  repositories.mavenInstaller {
+    pom.project {
+      licenses {
+        license {
+          //noinspection GroovyAssignabilityCheck
+          name 'Creative Commons Attribution 4.0 International'
+          url 'https://creativecommons.org/licenses/by/4.0/legalcode'
+          distribution 'repo'
         }
+      }
     }
+  }
 }
 
-//noinspection GroovyAssignabilityCheck
 dependencies {
-    def runDependencies = rootProject.ext.runDependencies
-    def testDependencies = rootProject.ext.testDependencies
+  def runDependencies = rootProject.ext.runDependencies
+  def testDependencies = rootProject.ext.testDependencies
 
-    compile runDependencies.commonsLang
-    compile runDependencies.retrofitGsonConverter
-    compile runDependencies.retrofit
-    compile runDependencies.retrofitRxJavaAdapter
-    compile runDependencies.javaXValidationApi
-    compile runDependencies.glassfishAnnotations
+  //noinspection GroovyAssignabilityCheck
+  compile runDependencies.commonsLang
+  //noinspection GroovyAssignabilityCheck
+  compile runDependencies.retrofitGsonConverter
+  //noinspection GroovyAssignabilityCheck
+  compile runDependencies.retrofit
+  //noinspection GroovyAssignabilityCheck
+  compile runDependencies.retrofitRxJavaAdapter
+  //noinspection GroovyAssignabilityCheck
+  compile runDependencies.javaXValidationApi
+  //noinspection GroovyAssignabilityCheck
+  compile runDependencies.glassfishAnnotations
 
-    testCompile testDependencies.jUnit4
+  testCompile testDependencies.jUnit4
 }
