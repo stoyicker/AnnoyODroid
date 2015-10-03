@@ -9,6 +9,8 @@ Download
 --------
 [![Release](https://img.shields.io/github/release/stoyicker/AnnoyODroid.svg?label=gradle)](https://jitpack.io/#stoyicker/AnnoyODroid)
 [![Release](https://img.shields.io/github/release/stoyicker/AnnoyODroid.svg?label=maven)](https://jitpack.io/#stoyicker/AnnoyODroid)
+
+--------
 **Gradle**
 ```groovy
 repositories {
