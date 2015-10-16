@@ -1,6 +1,6 @@
 AnnoyODroid
 ===========
-master [![Build Status](https://travis-ci.org/stoyicker/AnnoyODroid.svg?branch=master)](https://travis-ci.org/stoyicker/AnnoyODroid) [![Coverage Status](https://coveralls.io/repos/stoyicker/AnnoyODroid/badge.svg?branch=master&service=github)](https://coveralls.io/github/stoyicker/AnnoyODroid?branch=master)
+master [![Build Status](https://travis-ci.org/stoyicker/AnnoyODroid.svg?branch=master)](https://travis-ci.org/stoyicker/AnnoyODroid) [![Codacy Badge](https://api.codacy.com/project/badge/60b723db12984e399e31b97b4a9146b6)](https://www.codacy.com/app/jorge-diazbenitosoriano/AnnoyODroid) [![Coverage Status](https://coveralls.io/repos/stoyicker/AnnoyODroid/badge.svg?branch=master&service=github)](https://coveralls.io/github/stoyicker/AnnoyODroid?branch=master)
 ------
 
 [Would you like to have your app show up here?](http://issuetemplate.com/#/stoyicker/AnnoyODroid/App%20highlight%20request "Request app highlight issue template")
