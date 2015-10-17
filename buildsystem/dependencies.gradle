@@ -23,9 +23,9 @@ ext {
     javaXValidationApiVersion = "1.1.0.Final"
     glassfishAnnotationVersion = "10.0-b28"
     commonsLangVersion = "3.4"
-    retrofitVersion = "2.0.0-beta1"
-    retrofitGsonConverterVersion = "2.0.0-beta1"
-    retrofitRxJavaAdapterVersion = "2.0.0-beta1"
+    retrofitVersion = "2.0.0-beta2"
+    retrofitGsonConverterVersion = "2.0.0-beta2"
+    retrofitRxJavaAdapterVersion = "2.0.0-beta2"
 
     //Testing
     jacocoVersion = "0.7.5.201505241946"

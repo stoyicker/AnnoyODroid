@@ -12,58 +12,62 @@ import javax.validation.constraints.NotNull;
 
 import retrofit.Retrofit;
 
-public abstract class ApiClient {
+public final class ApiClient {
 
-    private static volatile IApiService service;
-    private static final Object LOCK = new Object();
-    private static String currentHost;
-    private static boolean isMocking = false;
+  private static IApiService service;
+  private static final Object LOCK = new Object();
+  private static String currentHost;
+  private static boolean isMocking = false;
 
-    /**
-     * Creates a Retrofit instance
-     *
-     * @param host The host to use for the instance.
-     * @return The instance created
-     */
-    private static Retrofit createRetrofit(final @NotNull String host) {
-        final Retrofit.Builder builder = new Retrofit.Builder();
+  private ApiClient() {
+    throw new IllegalAccessError("No instances");
+  }
 
-        return builder
-                .baseUrl(host)
-                .build();
-    }
+  /**
+   * Creates a Retrofit instance
+   *
+   * @param host The host to use for the instance.
+   * @return The instance created
+   */
+  private static Retrofit createRetrofit(final @NotNull String host) {
+    final Retrofit.Builder builder = new Retrofit.Builder();
 
-    /**
-     * Injects a service. <strong>To be used for testing purposes only</strong>
-     *
-     * @param _service The service to inject
-     */
-    static void setApiService(final @NotNull IApiService _service) {
-        ApiClient.service = _service;
-        isMocking = true;
-    }
+    return builder
+        .baseUrl(host)
+        .build();
+  }
 
-    /**
-     * Gets the singleton service for a given host. If it does not match the current one, a new
-     * instance is created to replace it
-     *
-     * @param host The corresponding host
-     * @return The singleton service instance
-     */
-    public static IApiService getApiService(@NotNull final String host) {
-        IApiService ret = service;
+  /**
+   * Injects a service. <strong>To be used for testing purposes only</strong>
+   *
+   * @param _service The service to inject
+   */
+  static void setApiService(final @NotNull IApiService _service) {
+    ApiClient.service = _service;
+    isMocking = true;
+  }
 
+  /**
+   * Gets the singleton service for a given host. If it does not match the current one, a new
+   * instance is created to replace it
+   *
+   * @param host The corresponding host
+   * @return The singleton service instance
+   */
+  public static synchronized IApiService getApiService(@NotNull final String host) {
+    IApiService ret = service;
+
+    if (service == null || !isMocking && !host.contentEquals(currentHost)) {
+      synchronized (LOCK) {
+        ret = service;
         if (service == null || (!isMocking && !host.contentEquals(currentHost))) {
-            synchronized (LOCK) {
-                ret = service;
-                if (service == null || (!isMocking && !host.contentEquals(currentHost))) {
-                    currentHost = host;
-                    ret = createRetrofit(host).create(IApiService.class);
-                    service = ret;
-                }
-            }
+          currentHost = host;
+          ret = createRetrofit(host).create(IApiService.class);
+          service = ret;
         }
-
-        return ret;
+      }
     }
+
+    return ret;
+  }
 }

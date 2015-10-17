@@ -15,8 +15,11 @@ buildscript {
   dependencies {
     def classpathDependencies = rootProject.ext.classpathDependencies
 
+    //noinspection GroovyAssignabilityCheck
     classpath classpathDependencies.gradleVersions
+    //noinspection GroovyAssignabilityCheck
     classpath classpathDependencies.jsonSchema2Pojo
+    //noinspection GroovyAssignabilityCheck
     classpath classpathDependencies.coveralls
   }
 }
@@ -59,6 +62,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
   classifier = 'javadoc'
+  //noinspection GroovyAssignabilityCheck
   from javadoc.destinationDir
 }
 
@@ -99,5 +103,6 @@ dependencies {
   //noinspection GroovyAssignabilityCheck
   compile runDependencies.glassfishAnnotations
 
+  //noinspection GroovyAssignabilityCheck
   testCompile testDependencies.jUnit4
 }

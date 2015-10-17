@@ -16,10 +16,10 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class TestSuite {
 
-    @Test
-    public void dummy() {
-        ApiClient.setApiService(new MockApiService());
-        final IApiService service = ApiClient.getApiService("http://www.google.com/");
-        Assert.assertNotNull(service);
-    }
+  @Test
+  public void dummy() {
+    ApiClient.setApiService(new MockApiService());
+    final IApiService service = ApiClient.getApiService("http://www.google.com/");
+    Assert.assertNotNull(service);
+  }
 }
