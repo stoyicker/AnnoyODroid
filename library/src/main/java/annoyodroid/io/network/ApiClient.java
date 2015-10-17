@@ -8,9 +8,9 @@
 
 package annoyodroid.io.network;
 
-import javax.validation.constraints.NotNull;
-
 import retrofit.Retrofit;
+
+import javax.validation.constraints.NotNull;
 
 public final class ApiClient {
 
@@ -60,7 +60,7 @@ public final class ApiClient {
     if (service == null || !isMocking && !host.contentEquals(currentHost)) {
       synchronized (LOCK) {
         ret = service;
-        if (service == null || (!isMocking && !host.contentEquals(currentHost))) {
+        if (service == null || !isMocking && !host.contentEquals(currentHost)) {
           currentHost = host;
           ret = createRetrofit(host).create(IApiService.class);
           service = ret;
