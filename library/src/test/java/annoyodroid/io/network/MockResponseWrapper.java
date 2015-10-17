@@ -8,11 +8,11 @@ import retrofit.Response;
 
 class MockResponseWrapper<T> {
 
+  private final Response<T> mResponse;
+
   public Response<T> getResponse() {
     return mResponse;
   }
-
-  private final Response<T> mResponse;
 
   public MockResponseWrapper(final int statusCode, final T successfulBody) {
     mResponse = Response.success(successfulBody, new com.squareup.okhttp.Response.Builder()
