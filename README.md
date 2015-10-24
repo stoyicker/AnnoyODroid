@@ -5,6 +5,14 @@ master [![Build Status](https://travis-ci.org/stoyicker/AnnoyODroid.svg?branch=m
 
 [Would you like to have your app show up here?](http://issuetemplate.com/#/stoyicker/AnnoyODroid/App%20highlight%20request "Request app highlight issue template")
 
+AnnoyODroid isn’t endorsed by Blizzard Entertainment and does not reflect the views or opinions of Blizzard Entertainment or anyone officially involved in producing or managing Hearthstone. Hearthstone and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment, Inc. Hearthstone © Blizzard Entertainment, Inc.
+
+Hearthstone API wrapper for Java and Android. Free to use (CC BY 4.0).
+
+Compatible with Java 7+ and Android API 9+. Supports both synchronous and asynchronous (imperatively and reactively) execution types.
+
+Pull requests are welcome. See the [guidelines for contributing](https://github.com/Stoyicker/AnnoyODroid/blob/master/CONTRIBUTING.md "CONTRIBUTING.md").
+
 Download
 --------
 [![Release](https://img.shields.io/github/release/stoyicker/AnnoyODroid.svg?label=gradle)](https://jitpack.io/#stoyicker/AnnoyODroid)
@@ -35,14 +43,6 @@ compile 'com.github.stoyicker:annoyodroid:(insert latest version)'
 Sample app
 ----------
 [![Get it now!](http://developer.android.com/images/brand/en_generic_rgb_wo_60.png "Get it now!")](https://play.google.com/store/apps/details?id=annoyodroid.sample)
-
-AnnoyODroid isn’t endorsed by Blizzard Entertainment and does not reflect the views or opinions of Blizzard Entertainment or anyone officially involved in producing or managing Hearthstone. Hearthstone and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment, Inc. Hearthstone © Blizzard Entertainment, Inc.
-
-Hearthstone API wrapper for Java and Android. Free to use (CC BY 4.0).
-
-Compatible with Java 7+ and Android API 9+. Supports both synchronous and asynchronous (imperatively and reactively) execution types.
-
-Pull requests are welcome. See the [guidelines for contributing](https://github.com/Stoyicker/AnnoyODroid/blob/master/CONTRIBUTING.md "CONTRIBUTING.md").
 
 License
 -------
