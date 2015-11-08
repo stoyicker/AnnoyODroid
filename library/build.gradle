@@ -13,7 +13,6 @@ buildscript {
 
   //noinspection GroovyAssignabilityCheck
   dependencies {
-    def classpathDependencies = rootProject.ext.classpathDependencies
 
     //noinspection GroovyAssignabilityCheck
     classpath classpathDependencies.gradleVersions
@@ -93,8 +92,6 @@ install {
 }
 
 dependencies {
-  def runDependencies = rootProject.ext.runDependencies
-  def testDependencies = rootProject.ext.testDependencies
 
   //noinspection GroovyAssignabilityCheck
   compile runDependencies.commonsLang
