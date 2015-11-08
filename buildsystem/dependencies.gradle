@@ -15,7 +15,7 @@ allprojects {
 
 ext {
     //Classpath
-    jsonSchema2PojoVersion = "0.4.15"
+    jsonSchema2PojoVersion = "0.4.16"
     gradleVersionsVersion = "0.11.3"
     coverallsVersion = "2.4.0"
 
