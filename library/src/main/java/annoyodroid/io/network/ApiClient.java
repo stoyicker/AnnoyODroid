@@ -8,7 +8,7 @@
 
 package annoyodroid.io.network;
 
-import retrofit.Retrofit;
+import retrofit2.Retrofit;
 
 import javax.validation.constraints.NotNull;
 

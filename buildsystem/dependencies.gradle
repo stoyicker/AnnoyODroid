@@ -8,48 +8,46 @@
 
 
 allprojects {
-    repositories {
-        jcenter()
-    }
+  repositories {
+    jcenter()
+  }
 }
 
 ext {
-    //Classpath
-    jsonSchema2PojoVersion = "0.4.18"
-    gradleVersionsVersion = "0.11.3"
-    coverallsVersion = "2.4.0"
+  //Classpath
+  jsonSchema2PojoVersion = "0.4.19"
+  gradleVersionsVersion = "0.12.0"
+  coverallsVersion = "2.6.3"
 
-    //Libraries
-    javaXValidationApiVersion = "1.1.0.Final"
-    glassfishAnnotationVersion = "10.0-b28"
-    commonsLangVersion = "3.4"
-    retrofitVersion = "2.0.0-beta2"
-    retrofitGsonConverterVersion = "2.0.0-beta2"
-    retrofitRxJavaAdapterVersion = "2.0.0-beta2"
+  //Libraries
+  javaXValidationApiVersion = "1.1.0.Final"
+  glassfishAnnotationVersion = "10.0-b28"
+  commonsLangVersion = "3.4"
+  retrofitVersion = "2.0.0-beta4"
+  retrofitGsonConverterVersion = "2.0.0-beta4"
+  retrofitRxJavaAdapterVersion = "2.0.0-beta4"
 
-    //Testing
-    jacocoVersion = "0.7.5.201505241946"
-    jUnit4Version = "4.12"
+  //Testing
+  jacocoVersion = "0.7.6.201602180812"
+  jUnit4Version = "4.12"
 
-    classpathDependencies = [
-            jsonSchema2Pojo: "org" +
-                    ".jsonschema2pojo:jsonschema2pojo-gradle-plugin:${jsonSchema2PojoVersion}",
-            gradleVersions : "com.github.ben-manes:gradle-versions-plugin:${gradleVersionsVersion}",
-            coveralls      : "org.kt3k.gradle.plugin:coveralls-gradle-plugin:${coverallsVersion}"
-    ]
+  classpathDependencies = [
+    jsonSchema2Pojo: "org" +
+      ".jsonschema2pojo:jsonschema2pojo-gradle-plugin:${jsonSchema2PojoVersion}",
+    gradleVersions : "com.github.ben-manes:gradle-versions-plugin:${gradleVersionsVersion}",
+    coveralls      : "org.kt3k.gradle.plugin:coveralls-gradle-plugin:${coverallsVersion}"
+  ]
 
-    runDependencies = [
-            javaXValidationApi    : "javax.validation:validation-api:${javaXValidationApiVersion}",
-            glassfishAnnotations  : "org.glassfish:javax.annotation:${glassfishAnnotationVersion}",
-            commonsLang           : "org.apache.commons:commons-lang3:${commonsLangVersion}",
-            retrofit              : "com.squareup.retrofit:retrofit:${retrofitVersion}",
-            retrofitGsonConverter : "com.squareup" +
-                    ".retrofit:converter-gson:${retrofitGsonConverterVersion}",
-            retrofitRxJavaAdapter : "com.squareup" +
-                    ".retrofit:adapter-rxjava:${retrofitRxJavaAdapterVersion}"
-    ]
+  runDependencies = [
+    javaXValidationApi   : "javax.validation:validation-api:${javaXValidationApiVersion}",
+    glassfishAnnotations : "org.glassfish:javax.annotation:${glassfishAnnotationVersion}",
+    commonsLang          : "org.apache.commons:commons-lang3:${commonsLangVersion}",
+    retrofit             : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+    retrofitGsonConverter: "com.squareup.retrofit2:retrofit:converter-gson:${retrofitGsonConverterVersion}",
+    retrofitRxJavaAdapter: "com.squareup.retrofit2:retrofit:adapter-rxjava:${retrofitRxJavaAdapterVersion}"
+  ]
 
-    testDependencies = [
-            jUnit4 : "junit:junit:${jUnit4Version}"
-    ]
+  testDependencies = [
+    jUnit4: "junit:junit:${jUnit4Version}"
+  ]
 }

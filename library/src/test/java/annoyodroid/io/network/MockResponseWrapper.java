@@ -1,10 +1,9 @@
 package annoyodroid.io.network;
 
-import com.squareup.okhttp.HttpUrl;
-import com.squareup.okhttp.Protocol;
-import com.squareup.okhttp.ResponseBody;
+import okhttp3.ResponseBody;
+import retrofit2.Response;
 
-import retrofit.Response;
+import javax.validation.constraints.NotNull;
 
 class MockResponseWrapper<T> {
 
@@ -14,17 +13,11 @@ class MockResponseWrapper<T> {
     return mResponse;
   }
 
-  public MockResponseWrapper(final int statusCode, final T successfulBody) {
-    mResponse = Response.success(successfulBody, new com.squareup.okhttp.Response.Builder()
-        .code(statusCode)
-        .protocol(Protocol.HTTP_1_1)
-        .request(new com.squareup.okhttp.Request.Builder().url(HttpUrl.parse
-            ("http://localhost"))
-            .build())
-        .build());
+  public MockResponseWrapper(final int statusCode, final @NotNull T successfulBody) {
+    mResponse = Response.success(successfulBody, new okhttp3.Response.Builder().code(statusCode).build());
   }
 
-  public MockResponseWrapper(final int statusCode, final ResponseBody errorBody) {
+  public MockResponseWrapper(final int statusCode, final @NotNull ResponseBody errorBody) {
     mResponse = Response.error(statusCode, errorBody);
   }
 }
