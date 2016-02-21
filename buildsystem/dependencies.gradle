@@ -9,6 +9,7 @@
 
 allprojects {
   repositories {
+    mavenCentral()
     jcenter()
   }
 }
@@ -43,8 +44,8 @@ ext {
     glassfishAnnotations : "org.glassfish:javax.annotation:${glassfishAnnotationVersion}",
     commonsLang          : "org.apache.commons:commons-lang3:${commonsLangVersion}",
     retrofit             : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
-    retrofitGsonConverter: "com.squareup.retrofit2:retrofit:converter-gson:${retrofitGsonConverterVersion}",
-    retrofitRxJavaAdapter: "com.squareup.retrofit2:retrofit:adapter-rxjava:${retrofitRxJavaAdapterVersion}"
+    retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:${retrofitGsonConverterVersion}",
+    retrofitRxJavaAdapter: "com.squareup.retrofit2:adapter-rxjava:${retrofitRxJavaAdapterVersion}"
   ]
 
   testDependencies = [
