@@ -42,7 +42,7 @@ compile 'com.github.stoyicker:annoyodroid:(insert latest version)'
 
 Sample app
 ----------
-[![Get it now!](http://developer.android.com/images/brand/en_generic_rgb_wo_60.png "Get it now!")](https://play.google.com/store/apps/details?id=annoyodroid.sample)
+<a href="https://play.google.com/store/apps/details?id=annyodroid.sample"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge.png" width="185" height="60"/></a>
 
 License
 -------
